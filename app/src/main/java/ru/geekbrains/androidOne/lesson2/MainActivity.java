@@ -1,5 +1,6 @@
 package ru.geekbrains.androidOne.lesson2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import ru.geekbrains.androidOne.lesson3.Operator;
 // 1. Напишите обработку каждой кнопки из макета калькулятора.
 
 public class MainActivity extends AppCompatActivity {
+
+    private final static String PARCELABLE_KEY = "CalculatorModel";
 
     private CalculatorModel engine;
     private TextView display;
@@ -111,4 +114,19 @@ public class MainActivity extends AppCompatActivity {
             display.setText(engine.getEntry());
         }
     };
+
+    // Сохранение данных
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle instanceState) {
+        super.onSaveInstanceState(instanceState);
+        instanceState.putParcelable(PARCELABLE_KEY, engine);
+    }
+
+    // Восстановление данных
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
+        super.onRestoreInstanceState(instanceState);
+        engine = instanceState.getParcelable(PARCELABLE_KEY);
+        display.setText(engine.getEntry());
+    }
 }

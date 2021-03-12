@@ -1,18 +1,53 @@
 package ru.geekbrains.androidOne.lesson3;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 
 // 2. Создайте объект с данными и операциями калькулятора.
 //    Продумайте, каким образом будете хранить введённые пользователем данные.
 
-public class CalculatorModel {
+public class CalculatorModel implements Parcelable {
 
-    private final int ENTRY_CAPACITY = 10;
+    private final static int ENTRY_CAPACITY = 10;
     private StringBuilder entry;
     private BigDecimal result;
     private Operator lastOperator;
     private boolean start;
+
+    protected CalculatorModel(Parcel in) {
+        entry = new StringBuilder(in.readString());
+        result = new BigDecimal(in.readString());
+        lastOperator= Operator.valueOf(in.readString());
+        start = in.readByte() != 0;
+    }
+
+    public static final Creator<CalculatorModel> CREATOR = new Creator<CalculatorModel>() {
+        @Override
+        public CalculatorModel createFromParcel(Parcel in) {
+            return new CalculatorModel(in);
+        }
+
+        @Override
+        public CalculatorModel[] newArray(int size) {
+            return new CalculatorModel[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(entry.toString());
+        dest.writeString(result.toString());
+        dest.writeString(lastOperator.toString());
+        dest.writeByte((byte) (start ? 1 : 0));
+    }
 
     public CalculatorModel() {
         allClean();
@@ -82,11 +117,11 @@ public class CalculatorModel {
         if (result.compareTo(BigDecimal.ZERO) == 0) {
             result = BigDecimal.ZERO;
         }
-        if (result.toString().length() > ENTRY_CAPACITY) {
-            this.entry = new StringBuilder(result.toString().substring(0, ENTRY_CAPACITY));
-        } else {
+//        if (result.toString().length() > ENTRY_CAPACITY) {
+//            this.entry = new StringBuilder(result.toString().substring(0, ENTRY_CAPACITY));
+//        } else {
             this.entry = new StringBuilder(result.toString());
-        }
+//        }
     }
 
     public String getEntry() {
