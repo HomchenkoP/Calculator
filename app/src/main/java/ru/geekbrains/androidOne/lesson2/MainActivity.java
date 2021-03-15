@@ -89,8 +89,22 @@ public class MainActivity extends AppCompatActivity {
     public View.OnClickListener digitButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Button button = (Button)v;
-            engine.appendEntry(button.getText().toString());
+//            не надо строить логику на значении текстового поля из кнопки
+//            Button button = (Button)v;
+//            engine.appendEntry(button.getText().toString());
+            switch (v.getId()) {
+                case R.id.button_dot: engine.appendEntry("."); break;
+                case R.id.button_0: engine.appendEntry("0"); break;
+                case R.id.button_1: engine.appendEntry("1"); break;
+                case R.id.button_2: engine.appendEntry("2"); break;
+                case R.id.button_3: engine.appendEntry("3"); break;
+                case R.id.button_4: engine.appendEntry("4"); break;
+                case R.id.button_5: engine.appendEntry("5"); break;
+                case R.id.button_6: engine.appendEntry("6"); break;
+                case R.id.button_7: engine.appendEntry("7"); break;
+                case R.id.button_8: engine.appendEntry("8"); break;
+                case R.id.button_9: engine.appendEntry("9"); break;
+            }
             display.setText(engine.getEntry());
         }
     };
