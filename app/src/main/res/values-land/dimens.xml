@@ -2,9 +2,9 @@
 <resources>
     <dimen name="buttonTextSize">40sp</dimen>
     <dimen name="buttonMarginHorizontal">15dp</dimen>
-    <dimen name="buttonMarginVertical">8dp</dimen>
+    <dimen name="buttonMarginVertical">4dp</dimen>
     <dimen name="buttonCornerRadius">15dp</dimen>
     <dimen name="displayTextSize">80sp</dimen>
-    <dimen name="displayMarginTop">55dp</dimen>
-    <dimen name="displayMarginBottom">55dp</dimen>
+    <dimen name="displayMarginTop">5dp</dimen>
+    <dimen name="displayMarginBottom">5dp</dimen>
 </resources>

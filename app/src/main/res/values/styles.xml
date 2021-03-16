@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Создайте стиль для своего приложения. -->
+<resources>
+    <style name="CalculatorButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:layout_marginStart">@dimen/buttonMarginHorizontal</item>
+        <item name="android:layout_marginEnd">@dimen/buttonMarginHorizontal</item>
+        <item name="android:layout_marginTop">@dimen/buttonMarginVertical</item>
+        <item name="android:layout_marginBottom">@dimen/buttonMarginVertical</item>
+    </style>
+    <style name="CalculatorDisplayStyle" parent="CalculatorButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/displayTextSize</item>
+    </style>
+</resources>
