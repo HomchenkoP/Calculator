@@ -6,5 +6,5 @@
     <dimen name="buttonCornerRadius">15dp</dimen>
     <dimen name="displayTextSize">80sp</dimen>
     <dimen name="displayMarginTop">55dp</dimen>
-    <dimen name="displayMarginBottom">55dp</dimen>
+    <dimen name="displayMarginBottom">50dp</dimen>
 </resources>

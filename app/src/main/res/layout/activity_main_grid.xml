@@ -8,6 +8,7 @@
 <!-- Переделайте все кнопки на материал. -->
 <!-- Все размеры и строки сделайте ресурсами. -->
 <!-- Создайте стиль для своего приложения. -->
+<!-- * Создайте светлую и тёмную тему для приложения. -->
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"

@@ -10,10 +10,12 @@ import android.widget.TextView;
 
 import ru.geekbrains.androidOne.lesson3.CalculatorModel;
 import ru.geekbrains.androidOne.lesson3.Operator;
+import ru.geekbrains.androidOne.lesson4.BaseActivity;
 
 // 1. Напишите обработку каждой кнопки из макета калькулятора.
+// * Создайте светлую и тёмную тему для приложения.
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private final static String PARCELABLE_KEY = "CalculatorModel";
 
