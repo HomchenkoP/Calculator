@@ -16,6 +16,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter android:label="ru.geekbrains.androidOne.lesson2.MainActivity">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Принимаем URI с началом "calculator://intent" -->
+                <data android:scheme="calculator"
+                    android:host="intent" />
+            </intent-filter>
         </activity>
     </application>
 

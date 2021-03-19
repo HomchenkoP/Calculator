@@ -166,7 +166,6 @@ public class MainActivity extends BaseActivity {
         // Операции для выбранного пункта меню
         switch (id) {
             case R.id.action_settings:
-                //Toast.makeText(getApplicationContext(), "Выбрано меню настроек", Toast.LENGTH_SHORT).show();
                 Intent userPrefs = new Intent(MainActivity.this, PrefsActivity.class);
                 // Метод стартует активити, указанную в интенте
                 startActivityForResult(userPrefs, REQUEST_CODE_PREFS_ACTIVITY);
@@ -183,7 +182,6 @@ public class MainActivity extends BaseActivity {
         }
 
         if (resultCode == RESULT_OK){
-            //account = data.getParcelableExtra(YOUR_ACCOUNT);
             if (data.getBooleanExtra("NIGHT_MODE", false) == true) {
                 Toast.makeText(getApplicationContext(), "Выбрана ночная тема приложения.", Toast.LENGTH_SHORT).show();
             } else {
