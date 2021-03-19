@@ -20,4 +20,6 @@
     <string name="_8">8</string>
     <string name="_9">9</string>
     <string name="prefs">Настройки</string>
+    <string name="nightMode">Ночной режим</string>
+    <string name="_return">Назад</string>
 </resources>
