@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1. Создайте активити с настройками, где включите выбор темы приложения. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="ru.geekbrains.androidOne.lesson5.PrefsActivity">
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchNightMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/nightMode"
+        android:textColor="?attr/colorOnSecondary"
+        android:layout_marginStart="@dimen/buttonMarginVertical"
+        android:layout_marginEnd="@dimen/buttonMarginHorizontal"
+        android:layout_marginTop="@dimen/buttonMarginVertical"
+        android:layout_marginBottom="@dimen/buttonMarginVertical"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnReturn"
+        android:text="@string/_return"
+        android:layout_gravity="center"
+        style="@style/CalculatorButtonStyle"
+        app:cornerRadius="@dimen/buttonCornerRadius"
+        app:backgroundTint="@color/buttonColor"/>/>
+</LinearLayout>

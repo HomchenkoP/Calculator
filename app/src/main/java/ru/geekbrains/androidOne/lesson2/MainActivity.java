@@ -2,6 +2,7 @@ package ru.geekbrains.androidOne.lesson2;
 
 import androidx.annotation.NonNull;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,13 +14,16 @@ import android.widget.Toast;
 import ru.geekbrains.androidOne.lesson3.CalculatorModel;
 import ru.geekbrains.androidOne.lesson3.Operator;
 import ru.geekbrains.androidOne.lesson4.BaseActivity;
+import ru.geekbrains.androidOne.lesson5.PrefsActivity;
 
 // 1. Напишите обработку каждой кнопки из макета калькулятора.
 // * Создайте светлую и тёмную тему для приложения.
+// 1. Создайте активити с настройками, где включите выбор темы приложения.
 
 public class MainActivity extends BaseActivity {
 
     private final static String PARCELABLE_KEY = "CalculatorModel";
+    private static final int REQUEST_CODE_PREFS_ACTIVITY = 99;
 
     private CalculatorModel engine;
     private TextView display;
@@ -162,10 +166,27 @@ public class MainActivity extends BaseActivity {
         // Операции для выбранного пункта меню
         switch (id) {
             case R.id.action_settings:
-                Toast.makeText(getApplicationContext(), "Выбрано меню настроек", Toast.LENGTH_SHORT).show();
+                Intent userPrefs = new Intent(MainActivity.this, PrefsActivity.class);
+                // Метод стартует активити, указанную в интенте
+                startActivityForResult(userPrefs, REQUEST_CODE_PREFS_ACTIVITY);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != REQUEST_CODE_PREFS_ACTIVITY) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
+
+        if (resultCode == RESULT_OK){
+            if (data.getBooleanExtra("NIGHT_MODE", false) == true) {
+                Toast.makeText(getApplicationContext(), "Выбрана ночная тема приложения.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Выбрана дневная тема приложения.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
