@@ -176,8 +176,9 @@ public class MainActivity extends BaseActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode != REQUEST_CODE_PREFS_ACTIVITY) {
-            super.onActivityResult(requestCode, resultCode, data);
             return;
         }
 
